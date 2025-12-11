@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <title>portfolio of Sanjana S</title>
+    <link rel = "Stylesheet" href="style.css">
+</head>                 
+<body>
+    <header>
+     <nav class="navbar">
+  <div class="logo">Sanjana S</div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" >Projects</a></li>
+    <li><a class="contact-btn"  href="contact.html">Contact</a>
+    </li>
+  </ul>
+ </nav>
+</header>
+    <section class = "hero">
+        <div class="hero-container">
+            <h2 class="intro">Hello, I Am</h2>
+            <h1 class="name">I'm Sanjana S </h1>
+            <p class="lead">
+            To start my career in the technical field by contributing to real-world projects, 
+            improving system performance, and expanding my expertise in IT tools, technologies, 
+            and best practices.</p>
+            <a href = "projects.html" class="btn">View My Work</a>
+        </div>
+        <img class="profile" src="profile.jpg" alt="profile">
+    </section>
+    <script>
+  // get current file name, ex: "About.html" → "about.html"
+  const currentPage = location.pathname.split("/").pop().toLowerCase();
+
+  // select all nav links
+  const menuLinks = document.querySelectorAll(".nav-links a");
+
+  menuLinks.forEach(link => {
+    const linkPage = link.getAttribute("href").toLowerCase();
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+:root{
+  --gutter:40px;
+  --accent:#e11616;
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a.active:not(.conatact-btn) {
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Contact Button */
+.contact-btn {
+  padding: 8px 18px;
+  border: 2px solid  var(--accent);
+  border-radius: 6px;
+  background-color: var(--accent);
+  color: #fff !important;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  border-bottom: none;
+  color: #fff !important;
+}
+
+.contact-btn:hover {
+  background-color: #e11616;
+  border-color: #e11616;
+  color: #fff !important;
+}
+
+/* Hamburger menu (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 28px;
+  height: 22px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 25px;
+    transition: 0.4s ease;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  }
+
+  /* Slide in menu */
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
+
+  /* Hamburger icon visible */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hamburger animation */
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+.hero{
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 48px var(--gutter);
+  position: relative;
+  overflow: visible;
+}
+.hero-container {
+  max-width: 720px;
+  width: 100%;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding-right: 2rem;
+}
+.intro{
+    font-size: 1.4rem;
+    margin-top: 20%;
+    color: #111;
+}
+.name{
+    font-size: clamp(2.4rem,6vw,4.8rem);
+    margin: 0 0 10px 0;
+    line-height: 1.02;
+    color: black;
+}
+.lead{
+    font-size: 1.05rem;
+    color: #000;
+    max-width: 520px;
+    margin-bottom: 10px;
+}
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--accent);
+    color: #fff;
+    border-radius: 28px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.18s ease, background-color 0.18s ease;
+}
+.btn:hover{
+    background-color:red;
+    transform: translateY(-3px);
+
+}
+.profile{
+  position: absolute;
+  right: 8%;
+  top: 60%;
+  transform: translateY(-50%);
+  width: clamp(120px,18vw,260px);
+  max-width: 260px;
+  height: auto;
+  border-radius: 999px;
+  border: 12px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(236, 233, 233, 0.934);
+  z-index: 5;
+}
+@media(max-width: 1024){
+   nav ul {gap:18px;}
+  .hero-container{max-width: 560px;}
+  .profile{right: 6%; width: clamp(120px,22vw,220px); max-width: 220px;}
+}
+@media (max-width:768px){
+  header{grid-template-columns: 1fr; padding: 0 6%;}
+  header nav{transform: none;}
+  .hero{padding: 28px 6%; min-height: auto; flex-direction: column; align-items: flex-start;}
+  .hero-container{width: 100%;}
+  .profile{position: static; transform: none; width: 120px; margin-top: 20px; align-self: center;}
+  .name{font-size: clamp(1.8rem,8vw,3rem);}
+}
+/* Hamburger menu (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 28px;
+  height: 22px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 60%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 25px;
+    transition: 0.4s ease;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  }
+
+  /* Slide in menu */
+  #menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
+
+  /* Hamburger icon visible */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hamburger animation */
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+/* ---------------- PROJECT SECTION ---------------- */
+.projects {
+  padding: 40px var(--gutter);
+  margin-top: 40px;
+}
+.projects h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #111;
+}
+.projects h2 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #111;
+}
+
+.projects p {
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* clean and simple project link */
+.project-link {
+  display: inline-block;
+  margin-top: 4px;
+  color: #e11616; 
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding-bottom: 2px;
+  transition: 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.project-link:hover {
+  border-bottom: 1px solid #e11616;
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+/* about page*/
+.about{
+  padding: 60px var(--gutter);
+  margin-top: 50px;
+  max-width: 900px;
+  line-height: 1.7;
+}
+.about h1{
+  font-size: 2.4rem;
+  color: #000;
+  max-width: 700px;
+  line-height: 1.8;
+  text-align: justify;
+  word-spacing: 2px;
+  padding-bottom: 2%;
+}
+.about p{
+  font-size: 1.1rem;
+  color: #000;
+  max-width: 700px;
+  line-height: 1.8;
+  text-align: justify;
+  word-spacing: 2px;
+}
+/* Larger screens — wider spacing */
+@media (min-width: 1024px) {
+  .about {
+    padding: 80px var(--gutter);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 6%;
+  }
+
+  .about h1 {
+    font-size: 1.8rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+    text-align: left;  /* easier to read on small screens */
+  }
+}
+/*contact page*/
+.contact{
+  padding: 60px var(--gutter);
+  margin-top: 70px;
+  max-width: 900px;
+  line-height: 1.7;
+}
+.contact h1{
+  font-size: 2.4rem;
+  margin-top: 20px;
+  color: #000;
+  font-weight: bold;
+}
+.conatact p{
+ font-size: 1.15rem;
+ color: #000;
+ margin-top: 20px; 
+ max-width: 600px;
+}
+.contact a {
+  color: #e11616;                 
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+.contact a:hover {
+  border-bottom: 1px solid #e11616;
+  opacity: 0.85;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact {
+    padding: 40px 6%;
+  }
+
+  .contact h1 {
+    font-size: 2.4rem;
+  }
+
+  .contact p {
+    font-size: 1rem;
+  }
+}
